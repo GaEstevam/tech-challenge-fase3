@@ -1,0 +1,22 @@
+.homepage-container {
+    padding: 20px;
+    background-color: #f0f2f5;
+    min-height: 100vh;
+    font-family: Arial, sans-serif;
+  }
+  
+  .homepage-title {
+    text-align: center;
+    color: #333;
+    margin-bottom: 30px;
+    font-size: 2.5em;
+  }
+  
+  .posts-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  

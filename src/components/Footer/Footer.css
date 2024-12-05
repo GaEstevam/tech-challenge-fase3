@@ -1,0 +1,17 @@
+/* src/components/Footer.css */
+
+.footer {
+    background-color: #f0f2f5;
+    padding: 20px;
+    text-align: center;
+    color: #555;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+  }
+  
+  /* Ajuste para evitar sobreposição com conteúdo */
+  body {
+    margin-bottom: 60px; /* Altura do footer */
+  }
+  
