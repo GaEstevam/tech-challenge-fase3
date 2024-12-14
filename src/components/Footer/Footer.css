@@ -1,17 +1,13 @@
-/* src/components/Footer.css */
-
 .footer {
-    background-color: #f0f2f5;
-    padding: 20px;
-    text-align: center;
-    color: #555;
-    position: fixed;
-    width: 100%;
-    bottom: 0;
-  }
-  
-  /* Ajuste para evitar sobreposição com conteúdo */
-  body {
-    margin-bottom: 60px; /* Altura do footer */
-  }
-  
+  background-color: var(--color-background);
+  padding: var(--spacing-medium);
+  text-align: center;
+  color: var(--color-light-text);
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+}
+
+body {
+  margin-bottom: 60px; 
+}

@@ -1,51 +1,50 @@
-/* src/components/Navbar.css */
-
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #0070f3;
-  padding: 10px 20px;
-  color: #ffffff;
+  background-color: var(--color-primary);
+  padding: var(--spacing-small) var(--spacing-medium);
+  color: var(--color-white);
 }
 
 .navbar-logo a {
-  color: #ffffff;
+  color: var(--color-white);
   text-decoration: none;
-  font-size: 1.5em;
+  font-size: 1.5em; 
   font-weight: bold;
 }
 
 .navbar-links {
   list-style: none;
   display: flex;
-  gap: 15px;
+  gap: var(--spacing-small);
   align-items: center;
 }
 
 .navbar-links li a {
-  color: #ffffff;
+  color: var(--color-white);
   text-decoration: none;
-  font-size: 1em;
+  font-size: var(--font-size-base);
   transition: color 0.2s;
 }
 
 .navbar-links li a:hover {
-  color: #ffdd57;
+  color: #ffdd57; 
 }
 
-/* Estilos para o botão de autenticação */
 .navbar-auth .auth-button {
   background: none;
   border: none;
-  color: #ffffff;
+  color: var(--color-white);
   cursor: pointer;
   display: flex;
   align-items: center;
+  font-size: var(--font-size-base);
+  transition: color 0.2s;
 }
 
 .navbar-auth .auth-button:hover {
-  color: #ffdd57;
+  color: #ffdd57; 
 }
 
 /* Responsividade */
@@ -67,6 +66,6 @@
   .navbar-links li a {
     display: block;
     width: 100%;
-    padding: 10px 0;
+    padding: var(--spacing-small) 0;
   }
 }
