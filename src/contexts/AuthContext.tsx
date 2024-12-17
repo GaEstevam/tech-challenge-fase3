@@ -6,6 +6,7 @@ import { jwtDecode } from 'jwt-decode';
 interface JwtPayload {
   id: number;
   role: 'Aluno' | 'Professor';
+  name: string; // Adiciona o nome ao payload do token
   iat?: number;
   exp?: number;
 }
@@ -13,6 +14,7 @@ interface JwtPayload {
 interface User {
   id: number;
   role: 'Aluno' | 'Professor';
+  name: string; // Adiciona o nome ao usuário
 }
 
 interface AuthContextType {
@@ -42,7 +44,7 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
         } else {
           setToken(storedToken);
           setIsAuthenticated(true);
-          setUser({ id: decoded.id, role: decoded.role });
+          setUser({ id: decoded.id, role: decoded.role, name: decoded.name }); // Inclui 'name'
         }
       } catch (error) {
         console.error('Token inválido', error);
@@ -51,25 +53,27 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
     }
     setLoading(false);
   }, []);
+  
 
   const login = async (email: string, password: string): Promise<boolean> => {
     try {
       const response = await loginService(email, password);
       const jwtToken = response.token as string;
-
+  
       setToken(jwtToken);
       localStorage.setItem('token', jwtToken);
-
+  
       const decoded = jwtDecode<JwtPayload>(jwtToken);
       setIsAuthenticated(true);
-      setUser({ id: decoded.id, role: decoded.role });
-
+      setUser({ id: decoded.id, role: decoded.role, name: decoded.name }); // Inclui 'name'
+  
       return true;
     } catch (error) {
       console.error('Erro no login:', error);
       return false;
     }
   };
+  
 
   const logout = () => {
     setIsAuthenticated(false);

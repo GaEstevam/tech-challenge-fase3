@@ -2,6 +2,7 @@ import React from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { Post } from '../../types';
 import './PostReadPage.css';
+import { getThemeName } from '../../theme';
 
 interface PostReadPageProps {
   posts: Post[];
@@ -22,17 +23,15 @@ const PostReadPage: React.FC<PostReadPageProps> = ({ posts }) => {
   };
 
   return (
+    
     <div className="post-read-container">
       <div className="post-read-content">
         <h1 className="post-read-title">{post.title}</h1>
-        <p className="post-read-body">{post.content}</p>
         <p className="post-read-description">{post.description}</p>
+        <p className='post-read-themeId'>Tema: {getThemeName(post.themeId)}</p>
         <p className="post-read-author">
           Autor: {post.creator?.username || 'Desconhecido'}
         </p>
-        <button className="edit-button" onClick={handleEdit}>
-          Editar
-        </button>
       </div>
     </div>
   );

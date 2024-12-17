@@ -2,7 +2,9 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import PostItem from '../../components/PostItem/PostItem';
 import { getPosts } from '../../services/api';
+import './HomePage.css';
 import { Post } from '../../types';
+
 
 interface HomePageProps {
   posts: Post[];
@@ -36,15 +38,15 @@ const HomePage: React.FC<HomePageProps> = ({ posts, setPosts, token }) => {
 
   return (
     <div>
-      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+      <div className="posts-list">
         <h1>Lista de Posts</h1>
-        <button onClick={() => navigate('/create')}>Criar Post</button>
-      </div>
-      {posts.length > 0 ? (
+        {posts.length > 0 ? (
         posts.map((post) => <PostItem key={post.id} post={post} />)
-      ) : (
+      ) 
+      : (
         <p>Nenhum post encontrado.</p>
       )}
+      </div>
     </div>
   );
 };

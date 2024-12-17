@@ -23,3 +23,31 @@
 
     --max-width: 800px;
 }
+
+/* Global container do app */
+.app-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Garante que ocupe toda a altura da tela */
+  }
+  
+  /* Conteúdo principal que expande */
+  .content {
+    flex: 1; /* Faz o conteúdo expandir para ocupar o espaço disponível */
+    padding: 20px; /* Espaçamento interno */
+    box-sizing: border-box; /* Garante que padding não afete a altura */
+    overflow-y: auto; /* Evita que o conteúdo ultrapasse o rodapé */
+  }
+  
+  /* Footer fix */
+  .footer {
+    background-color: #007bff; /* Cor azul do rodapé */
+    color: white; /* Cor do texto */
+    text-align: center; /* Centraliza o texto */
+    padding: 10px 0; /* Espaçamento interno superior e inferior */
+    width: 100%; /* Ocupa toda a largura */
+    position: sticky; /* Mantém o rodapé no fundo conforme o conteúdo cresce */
+    bottom: 0; /* Gruda o rodapé na parte inferior */
+    z-index: 10; /* Garante que o rodapé fique acima de outros elementos */
+  }
+  

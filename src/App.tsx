@@ -5,7 +5,7 @@ import Footer from './components/Footer/Footer';
 import HomePage from './pages/HomePage/HomePage';
 import PostReadPage from './pages/PostReadPage/PostReadPage';
 import PostCreatePage from './pages/PostCreate/PostCreatePage';
-import AdminPage from './pages/AdminPage';
+import AdminPage from './pages/AdminPage/AdminPage';
 import ProtectedRoute from './components/ProtectedRoute';
 import LoginPage from './pages/LoginPage/LoginPage';
 import NotFoundPage from './pages/NotFoundPage/NotFoundPage';
@@ -19,12 +19,14 @@ const AppContent: React.FC = () => {
   const [posts, setPosts] = useState<Post[]>([]);
   const { token } = useAuth(); // Pega o token do contexto de autenticação
 
+  // Função para deletar um post
   const handleDelete = async (id: number) => {
     try {
-      await deletePost(id);
-      setPosts(posts.filter((post) => post.id !== id));
-    } catch (err) {
-      console.error('Erro ao deletar o post.');
+      if (!token) throw new Error('Token não disponível.');
+      await deletePost(id, token); // Chama a API para deletar o post
+      setPosts((prevPosts) => prevPosts.filter((post) => post.id !== id)); // Remove o post localmente
+    } catch (error) {
+      console.error('Erro ao deletar o post:', error);
     }
   };
 
@@ -66,7 +68,6 @@ const AppContent: React.FC = () => {
               </ProtectedRoute>
             }
           />
-
           <Route
             path="/admin"
             element={
@@ -82,6 +83,7 @@ const AppContent: React.FC = () => {
     </div>
   );
 };
+
 
 const App: React.FC = () => {
   return (

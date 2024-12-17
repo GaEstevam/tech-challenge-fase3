@@ -1,50 +1,54 @@
+/* src/components/Navbar.css */
+
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: var(--color-primary);
-  padding: var(--spacing-small) var(--spacing-medium);
-  color: var(--color-white);
+  background-color: #0070f3;
+  padding: 1em;
+  color: #ffffff;
 }
 
 .navbar-logo a {
-  color: var(--color-white);
+  color: #ffffff;
   text-decoration: none;
-  font-size: 1.5em; 
+  font-size: 1.5em;
   font-weight: bold;
+  font-size: 2em;
 }
 
 .navbar-links {
   list-style: none;
   display: flex;
-  gap: var(--spacing-small);
+  gap: 3em;
   align-items: center;
+  margin-right: 100px;
 }
 
 .navbar-links li a {
-  color: var(--color-white);
+  color: #ffffff;
   text-decoration: none;
-  font-size: var(--font-size-base);
+  font-size: 1.5em;
   transition: color 0.2s;
 }
 
 .navbar-links li a:hover {
-  color: #ffdd57; 
+  color: #ffdd57;
 }
 
+/* Estilos para o botão de autenticação */
 .navbar-auth .auth-button {
   background: none;
   border: none;
-  color: var(--color-white);
+  color: #ffffff;
   cursor: pointer;
   display: flex;
   align-items: center;
-  font-size: var(--font-size-base);
-  transition: color 0.2s;
+  
 }
 
 .navbar-auth .auth-button:hover {
-  color: #ffdd57; 
+  color: #ffdd57;
 }
 
 /* Responsividade */
@@ -66,6 +70,6 @@
   .navbar-links li a {
     display: block;
     width: 100%;
-    padding: var(--spacing-small) 0;
+    padding: 10px 0;
   }
 }

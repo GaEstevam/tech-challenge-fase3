@@ -15,6 +15,10 @@
     padding: var(--spacing-large);
     border-radius: var(--radius-base);
     box-shadow: var(--shadow-card);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 120%;
 }
 
 .post-read-title {
@@ -35,4 +39,33 @@
     font-style: italic;
     text-align: right;
     color: var(--color-light-text);
+}
+
+.edit-button {
+    background: orange;
+    color: var(--color-white);
+    padding: var(--spacing-small);
+    border: none;
+    font-size: var(--font-size-base);
+    border-radius: var(--radius-small);
+    cursor: pointer;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 2em;
+}
+
+.delete-button {
+    background: red;
+    color: var(--color-white);
+    padding: var(--spacing-small);
+    border: none;
+    font-size: var(--font-size-base);
+    border-radius: var(--radius-small);
+    cursor: pointer;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 2em;
+    margin-left: 2em;
 }

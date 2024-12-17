@@ -14,8 +14,25 @@
 
 .posts-list {
   display: flex;
-  flex-direction: column;
-  gap: var(--spacing-medium);
-  max-width: var(--max-width);
-  margin: 0 auto;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+  
 }
+
+ .botao {
+  background: var(--color-primary);
+    color: var(--color-white);
+    padding: var(--spacing-small);
+    border: none;
+    font-size: var(--font-size-base);
+    border-radius: var(--radius-small);
+    cursor: pointer;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 2em;
+    max-width: 100%;
+    margin-left: 48em;
+ }

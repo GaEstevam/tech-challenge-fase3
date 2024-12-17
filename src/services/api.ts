@@ -34,8 +34,8 @@ export const getUsers = async () => {
 // --------------------- Funções de Postagens ---------------------
 
 // Criar um post (apenas PROFESSOR)
-export const createPost = async (title: string, description: string, themeId: number, content: string) => {
-  const response = await api.post('/posts/create', { title, description, themeId, content });
+export const createPost = async (title: string, description: string, themeId: number) => {
+  const response = await api.post('/posts/create', { title, description, themeId });
   return response.data;
 };
 
@@ -86,8 +86,11 @@ export const searchPosts = async (query: string) => {
   return response.data;
 };
 
-// Deletar um post (apenas PROFESSOR)
-export const deletePost = async (id: number) => {
-  const response = await api.delete(`/posts/delete/${id}`);
+export const deletePost = async (id: number, token: string) => {
+  const response = await api.delete(`/posts/delete/${id}`, {
+    headers: {
+      Authorization: `Bearer ${token}`, // Envia o token no cabeçalho
+    },
+  });
   return response.data;
 };

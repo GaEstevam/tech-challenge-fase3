@@ -11,7 +11,7 @@
 .post-create-title {
     text-align: center;
     color: var(--color-text);
-    margin-bottom: var(--spacing-large);
+    margin-top: 50px;
     font-size: var(--font-size-large);
 }
 
@@ -25,6 +25,8 @@
     padding: var(--spacing-large);
     border-radius: var(--radius-base);
     box-shadow: var(--shadow-card);
+    height: 23em;
+    margin-top: 50px;
 }
 
 .post-create-form input[type="text"],
@@ -52,8 +54,26 @@
     font-weight: bold;
     text-transform: uppercase;
     letter-spacing: 1px;
+    margin-top: 2em;
 }
 
 .post-create-form button[type="submit"]:hover {
     background: #0056b3;
+    
+}
+
+.botao-post {
+    color: var(--color-white);
+    padding: var(--spacing-small);
+    border: none;
+    font-size: var(--font-size-base);
+    border-radius: var(--radius-small);
+    cursor: pointer;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 2em;
+    width: 150px;
+    margin-left: 13em;
+    margin-bottom: 12px
 }

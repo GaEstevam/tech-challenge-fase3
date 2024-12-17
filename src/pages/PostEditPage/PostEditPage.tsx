@@ -4,6 +4,7 @@ import { editPost, getPostById } from '../../services/api';
 import { useAuth } from '../../contexts/AuthContext';
 import './PostEditPage.css';
 
+
 const PostEditPage: React.FC = () => {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
@@ -54,24 +55,17 @@ const PostEditPage: React.FC = () => {
 
   return (
     <div className="post-edit-container">
-      <h1>Editar Post</h1>
-      <form onSubmit={handleSubmit}>
+      <h1 className="post-edit-title">Editar Post</h1>
+      <form onSubmit={handleSubmit} className="post-edit-form">
         <input
           type="text"
+
           placeholder="Título"
           value={title}
           onChange={(e) => setTitle(e.target.value)}
           required
         />
         <textarea
-          placeholder="Conteúdo"
-          value={content}
-          onChange={(e) => setContent(e.target.value)}
-          rows={5}
-          required
-        />
-        <input
-          type="text"
           placeholder="Descrição"
           value={description}
           onChange={(e) => setDescription(e.target.value)}
@@ -84,7 +78,7 @@ const PostEditPage: React.FC = () => {
           onChange={(e) => setThemeId(Math.max(1, Number(e.target.value)))}
           required
         />
-        <button type="submit">Salvar Alterações</button>
+        <button type="submit" className="botao-put">Salvar Alterações</button>
       </form>
     </div>
   );

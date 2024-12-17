@@ -8,7 +8,6 @@ const PostCreatePage: React.FC = () => {
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
   const [themeId, setThemeId] = useState<number>(1);
-  const [content, setContent] = useState(''); // Adiciona o conteúdo
   const [loading, setLoading] = useState(false);
   const { token } = useAuth();
   const navigate = useNavigate();
@@ -23,7 +22,7 @@ const PostCreatePage: React.FC = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    if (!title || !description || !content) {
+    if (!title || !description ) {
       alert('Título, Descrição e Conteúdo são obrigatórios.');
       return;
     }
@@ -32,7 +31,7 @@ const PostCreatePage: React.FC = () => {
       setLoading(true);
 
       // Envia a requisição para a API com o campo conteúdo
-      await createPost(title, description, themeId, content);
+      await createPost(title, description, themeId);
       alert('Post criado com sucesso!');
       navigate('/home');
     } catch (error) {
@@ -55,14 +54,6 @@ const PostCreatePage: React.FC = () => {
           required
         />
         <textarea
-          placeholder="Conteúdo (obrigatório)"
-          value={content}
-          onChange={(e) => setContent(e.target.value)}
-          rows={5}
-          required
-        />
-        <input
-          type="text"
           placeholder="Descrição (obrigatório)"
           value={description}
           onChange={(e) => setDescription(e.target.value)}
@@ -75,7 +66,7 @@ const PostCreatePage: React.FC = () => {
           onChange={(e) => setThemeId(Math.max(1, Number(e.target.value)))}
           required
         />
-        <button type="submit" disabled={loading}>
+        <button type="submit" disabled={loading} className="botao-post">
           {loading ? 'Enviando...' : 'Criar Post'}
         </button>
       </form>
