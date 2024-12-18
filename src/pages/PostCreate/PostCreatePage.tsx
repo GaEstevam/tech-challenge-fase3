@@ -63,7 +63,10 @@ const PostCreatePage: React.FC = () => {
           type="number"
           placeholder="Theme ID (padrão: 1)"
           value={themeId}
-          onChange={(e) => setThemeId(Math.max(1, Number(e.target.value)))}
+          onChange={(e) => {
+            const value = Math.max(1, Math.min(4, Number(e.target.value))); // Limita entre 1 e 4
+            setThemeId(value);
+          }}
           required
         />
         <button type="submit" disabled={loading} className="botao-post">
